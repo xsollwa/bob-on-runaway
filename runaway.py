@@ -17,18 +17,15 @@ GPIO.setup(servo_pin, GPIO.OUT)
 servo = GPIO.PWM(servo_pin, 50)
 servo.start(0)
 
-# Stepper Motors 
-motorA_pins = [15, 14, 18, 13]  # L
-motorB_pins = [6, 26, 5, 19]    # R
+# Stepper Motors with TMC2209 (STEP, DIR, EN)
+motorA = {'STEP': 15, 'DIR': 14, 'EN': 18}  # Left motor
+motorB = {'STEP': 6,  'DIR': 26, 'EN': 5}   # Right motor
 
-for pin in motorA_pins + motorB_pins:
-    GPIO.setup(pin, GPIO.OUT)
-    GPIO.output(pin, 0)
-
-step_seq = [
-    [1, 0, 0, 1], [1, 0, 0, 0], [1, 1, 0, 0], [0, 1, 0, 0],
-    [0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 1], [0, 0, 0, 1]
-]
+for motor in [motorA, motorB]:
+    GPIO.setup(motor['STEP'], GPIO.OUT)
+    GPIO.setup(motor['DIR'], GPIO.OUT)
+    GPIO.setup(motor['EN'], GPIO.OUT)
+    GPIO.output(motor['EN'], GPIO.LOW)  # Enable motor
 
 # Ultrasonic Sensors 
 ultrasonic_pins = {
@@ -54,26 +51,37 @@ def set_angle(angle):
     time.sleep(0.3)
     servo.ChangeDutyCycle(0)
 
-def move_motor(pins, steps, delay=0.002):
-    direction = 1 if steps > 0 else -1
+def move_motor(motor, steps, delay=0.001):
+    """
+    Move a stepper motor using TMC2209.
+
+    Args:
+        motor (dict): Dictionary with 'STEP', 'DIR', and 'EN' keys.
+        steps (int): Number of steps to move. Positive = forward, Negative = reverse.
+        delay (float): Delay between steps.
+    """
+    direction = GPIO.HIGH if steps > 0 else GPIO.LOW
+    GPIO.output(motor['DIR'], direction)
     steps = abs(steps)
+
     for _ in range(steps):
-        for halfstep in range(8)[::direction]:
-            for i in range(4):
-                GPIO.output(pins[i], step_seq[halfstep][i])
-            time.sleep(delay)
+        GPIO.output(motor['STEP'], GPIO.HIGH)
+        time.sleep(delay)
+        GPIO.output(motor['STEP'], GPIO.LOW)
+        time.sleep(delay)
+
 
 def move_backward():
-    move_motor(motorA_pins, -512)
-    move_motor(motorB_pins, -512)
+    move_motor(motorA, -512)
+    move_motor(motorB, -512)
 
 def turn_left():
-    move_motor(motorA_pins, -512)
-    move_motor(motorB_pins, 512)
+    move_motor(motorA, -512)
+    move_motor(motorB, 512)
 
 def turn_right():
-    move_motor(motorA_pins, 512)
-    move_motor(motorB_pins, -512)
+    move_motor(motorA, 512)
+    move_motor(motorB, -512)
 
 def get_distance(trig, echo):
     GPIO.output(trig, False)
