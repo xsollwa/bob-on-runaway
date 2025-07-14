@@ -30,18 +30,18 @@ A Raspberry Pi based robot that uses a webcam to detect human faces and run away
 ## Materials: How It Works
 
 **Bill of Materials**
-| Part         | Function                                      |
-|------------------|-----------------------------------------------|
-| Raspberry Pi 4    | Main controller (runs the code)              |
-| USB Webcam        | Captures video for face detection            |
-| Servo Motor       | Rotates the camera to follow the face        |
-| Stepper Motors x2 | Drive the robot left, right, or backward     |
-| Ultrasonic x4     | Detect people (front) + avoid obstacles (L/R/back) |
-| Buck Converter |  |
-| Switch |  | 
-| Resistor 6x | |
-| Perf board |  |
-| Stepper Motor Drivers x2 |  |
+| Component                         | Description                                              |
+|----------------------------------|----------------------------------------------------------|
+| **Raspberry Pi 4**               | Main controller (runs the code)                          |
+| **USB Webcam (Logitech C270)**   | Captures video for face detection using OpenCV          |
+| **Servo Motor (9g)**             | Rotates the camera to follow the face                   |
+| **Stepper Motors x2**            | Drive the robot left, right, or backward                |
+| **Ultrasonic Sensors x3**        | Detect people and obstacles (front, left, right)        |
+| **Buck Converter**               | Steps down battery voltage (7.4V to 5V for Pi)      |
+| **Battery Pack (7.4V and 6V)**   | Powers motors and Pi (via buck converter)               |
+| **Perf Board**                   | For mounting and soldering sensor/motor connections     |
+| **Resistors x6**    | Protect GPIO       |
+
 
 
 ## Setup Instructions
