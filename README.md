@@ -62,7 +62,10 @@ A Raspberry Pi based robot that uses a webcam to detect human faces and run away
 
 ### 1. Raspberry Pi OS
 - Flash Raspberry Pi OS to a microSD card 
-- ....
+- SSH into Pi and configure network settings if necesary
+- Install VNC via SSH
+- Exit and VCN into pi
+- Install ffmpeg for video viewing, use command ffview /dev/video0
 
 ### 2. Install Python Dependencies
-...
+- 
