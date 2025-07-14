@@ -1,0 +1,12 @@
+Part,Function
+Raspberry Pi 4,Main controller (runs the code)
+USB Webcam (Logitech C270),Captures video for face detection
+Servo Motor (9g),Rotates the camera to follow the face
+Stepper Motors x2,"Drive the robot left, right, or backward"
+Ultrasonic x3,Detect people (front) + avoid obstacles (L/R/back)
+Buck Converter,Steps down battery voltage (e.g. from 7.4V to 5V for Pi)
+Battery Pack (7.4v and 6v),Powers motors and Pi (via buck converter)
+Perf Board (Prototype Board),For mounting and soldering sensor connections
+Resistors x6,For sensors' safety
+Female-to-Female Jumper Wires,For GPIO and sensor wiring
+Male-to-Male Jumper Wires,For connecting to motor drivers and perf board
