@@ -22,6 +22,9 @@ A Raspberry Pi based robot that uses a webcam to detect human faces and run away
 
 **Wiring Diagram**
 
+<img width="775" height="615" alt="image" src="https://github.com/user-attachments/assets/d4084d28-a876-4136-95bd-388a01c552b0" />
+
+
 **Final Assembly**
 
 ## Materials: How It Works
