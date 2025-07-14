@@ -45,10 +45,7 @@ A Raspberry Pi based robot that uses a webcam to detect human faces and run away
 
 ### 1. Raspberry Pi OS
 - Flash Raspberry Pi OS to a microSD card 
-- Enable camera and I2C in `raspi-config`
+- ....
 
 ### 2. Install Python Dependencies
-```bash
-sudo apt update
-sudo apt install python3-opencv python3-pip
-pip3 install numpy RPi.GPIO
+...
