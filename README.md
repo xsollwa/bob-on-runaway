@@ -68,4 +68,23 @@ A Raspberry Pi based robot that uses a webcam to detect human faces and run away
 - Install ffmpeg for video viewing, use command ffview /dev/video0
 
 ### 2. Install Python Dependencies
-- 
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y \
+    python3-opencv \
+    python3-pip \
+    python3-numpy \
+    python3-rpi.gpio \
+    libatlas-base-dev \
+    libhdf5-dev \
+    libhdf5-103 \
+    libjasper-dev \
+    libqtgui4 \
+    libqt4-test \
+    wget \
+    thonny
+
+pip3 install numpy RPi.GPIO
+wget https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml -O ~/haarcascade_frontalface_default.xml
+
+
