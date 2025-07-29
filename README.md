@@ -1,5 +1,6 @@
 # bob-on-runaway
 **Bob runs from you -- Undercity**
+Demo video: https://youtu.be/lwRu8U_wSio?si=23ed8yJiRMO9bLki
 
 A Raspberry Pi based robot that uses a webcam to detect human faces and run away from them while avoiding obstacles in real time.
 
