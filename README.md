@@ -3,6 +3,7 @@
 Demo video: https://youtu.be/lwRu8U_wSio?si=23ed8yJiRMO9bLki
 
 //note: this got approved as shipped by acon :D
+//athena link: https://hackclub.slack.com/archives/C06T17NQB0B/p1754317969589009
 
 *A Raspberry Pi based robot that uses a webcam to detect human faces and run away from them while avoiding obstacles.*
 
