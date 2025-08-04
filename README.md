@@ -4,7 +4,7 @@ Demo video: https://youtu.be/lwRu8U_wSio?si=23ed8yJiRMO9bLki
 
 //note: this got approved as shipped by acon :D
 
-*A Raspberry Pi based robot that uses a webcam to detect human faces and run away from them while avoiding obstacles in real time.*
+*A Raspberry Pi based robot that uses a webcam to detect human faces and run away from them while avoiding obstacles.*
 
 Bob is a tiny robot that runs away from people. It spots your face with a webcam, turns to look at you, and if you get too close, it backs off while dodging anything in its way. It’s powered by a Raspberry Pi and uses face detection (OpenCV), distance sensors, and stepper motors to move smartly.
 
